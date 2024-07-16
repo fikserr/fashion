@@ -1,16 +1,22 @@
 import { NavLink } from "react-router-dom";
 import Container from "../../layout/container";
-import logo from "./navbar.module.scss";
+import logo from "../../images/logo.png";
 import styles from "./navbar.module.scss";
 
 function Navbar() {
   return (
     <div className={styles.navbar}>
-      <Container>
+      <Container className={styles.navbar__container}>
         <NavLink className={styles.navbar__logo} to="/">
           <img src={logo} alt="" />
         </NavLink>
-        <div className={styles.navbar__pages}></div>
+        <div className={styles.navbar__pages}>
+          <NavLink to='/' className={styles.navbar__pages_link}>Новинки</NavLink>
+          <NavLink to='/' className={styles.navbar__pages_link}>Категории</NavLink>
+          <NavLink to='/' className={styles.navbar__pages_link}>Скидки</NavLink>
+          <NavLink to='/' className={styles.navbar__pages_link}>Контакты </NavLink>
+          <NavLink to='/' className={styles.navbar__pages_link}>О нас</NavLink>
+        </div>
         <NavLink className={styles.navbar__logo} to="basket">
           <svg
             xmlns="http://www.w3.org/2000/svg"

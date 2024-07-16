@@ -1,0 +1,30 @@
+.search{
+    padding-top: 40 px;
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    &__title{
+        color: #000;
+        font-family: 'Montserrat';
+        font-size: 58px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    &__searchInp{
+        width: 40%;
+        color: #000;
+        font-family: 'Montserrat';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 8px;
+        border-radius: 8px;
+
+    }
+
+}

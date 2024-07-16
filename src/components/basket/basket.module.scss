@@ -1,0 +1,289 @@
+.basket{
+    display: flex;
+    position:  absolute;
+    top: -98px;
+    width: 100%;
+    height: calc(100vh + 98px);
+    background: rgba(26, 26, 26, 0.40);
+    z-index: 1;
+    overflow: auto;
+    &.active{
+        display: block;
+    }
+    &__container{
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        background: transparent;
+    }
+    &__content{
+        position: absolute;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 12px;
+        transition: 0.5s;
+        top: 216px;
+        background: #FFF;
+        z-index: 2;
+        animation: upper 0.5s linear ;
+    }
+    &__top{
+        width: 530px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__title{
+        color:  #1D1D1F;
+        font-family: 'Inter';
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 36px; 
+    }
+    &__cancel{
+        border-radius: 8px;
+        background:#F5F5F7;
+        padding: 6px;
+        border: none;
+        & svg{
+            font-size: 21px;
+        }
+    }
+
+    &__error{
+        width: 281px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 150px;
+        margin-bottom: 140px;
+        &.active{
+            display: none;
+        }
+      
+        &_title,&_txt{
+            padding-top: 16px;
+            color: #1D1D1F;
+            text-align: center;
+            font-family: 'Inter';
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28px; 
+        }
+        &_txt{
+            padding-top: 6px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            padding-bottom: 20px;
+        }
+        &_btn{
+            margin-top: 12px;
+            width: 280px;
+            padding: 16px 0;
+            color:  #00CC2D;
+            text-align: center;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 24px;
+            border: none;
+            border-radius: 12px;
+            background:  #F5F5F7;
+            transition: 0.5s;
+            cursor: pointer;
+            &:hover{
+                background: #00CC2D;
+                color: white;
+            }
+        }
+    }
+    &__products{
+        padding: 24px 0 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        &.active{
+            display: none;
+        }
+        &_item{
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 71px;
+            padding: 12px 18px;
+            border-radius: 12px;
+            background:  #F5F5F7;
+        }
+        &_delete{
+            position: absolute;
+            left: -12.50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            border-radius: 8px;
+            background: #FFF;
+            border: none;
+            transition: 0.5s;
+            &:hover{
+                background:  #F44837;
+            }
+        }
+        &_left{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        &_image{
+            width: 58px;
+            height: 47px;
+        }
+        &_title{
+            display: flex;
+            color:  #1D1D1F;
+            font-family:' Inter';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px; 
+            & span{
+                margin-right: 4px;
+            }
+        }
+        &_weight{
+            color: #F63;
+            font-family: 'Inter';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px; 
+        }
+        &_right{
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            & div{
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+        }
+        &_price{
+            color: #1D1D1F;
+            text-align: right;
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px; 
+        }
+        &_minus,&_plus{
+            font-size: 18px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 8px;
+            background: #FFF;
+        }
+        &_quanity{
+            color:  #1D1D1F;
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+        }
+        &_limit{
+            padding: 16px 0 12px;
+            color: #F63;
+            font-family:' Inter';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+        }
+
+
+    }
+    &__bottom{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        border-radius: 12px;
+        width: 100%;
+        &.active{
+            display: none;
+        }
+        & div{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        &_total{
+            color:  #9E9E9E;
+            font-family: 'Inter';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+        }
+        &_price{
+            color:  #1D1D1F;
+            font-family: 'Inter';
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+            & span{
+                color: #686870;
+                font-family:' Inter';
+                font-size: 21px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 40px;
+            }
+        }
+        &_btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 180px;
+            height: 56px;
+            border-radius: 12px;
+            background:  #00CC2D;
+            border: none;
+            color:  #FFF;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 24px; 
+        }
+    }
+
+    
+
+}
+
+
+@keyframes upper {
+    0%{
+        top: -1000px;
+        
+    }
+    100%{
+        top: 116px;
+    }
+}

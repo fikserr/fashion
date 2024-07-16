@@ -1,3 +1,22 @@
 .navbar{
-    
+    padding: 6px 0;
+    height: 117px;
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__pages{
+        display: flex;
+        gap: 78px;
+        &_link{
+            color: #000;
+            font-family: 'Montserrat';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration: none;
+        }
+    }
 }
