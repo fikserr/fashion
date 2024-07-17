@@ -15,7 +15,7 @@ function Search() {
     return (
         <div className={styles.search}>
             <Container className={styles.search__container}>
-                <h1 className={styles.search__title}>Fashion</h1>
+                <h1 className={styles.search__title}>Products</h1>
                 <input type="text" 
                 className={styles.search__searchInp} 
                 placeholder='Search fashions'

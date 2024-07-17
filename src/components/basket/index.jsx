@@ -39,8 +39,6 @@ function Basket() {
             <p className={styles.basket__error_title}>В вашей корзине пока пусто</p>
             <p className={styles.basket__error_txt}>Тут появятся товары, которые вы закажите</p>
             <button className={styles.basket__error_btn}>Повторить прошлый заказ</button>
-            <button className={styles.basket__error_btn}>История заказов</button>
-            <button className={styles.basket__error_btn}>Авторизоваться</button>
           </div>
 
           <div className={basket.length == 0 ? classNames(styles.basket__products,styles.active) : styles.basket__products}>
@@ -62,7 +60,7 @@ function Basket() {
                       </div>
                 </div>
                 <div className={styles.basket__products_right}>
-                  <p className={styles.basket__products_price}>{item.price} грн</p>
+                  <p className={styles.basket__products_price}>{item.price} $</p>
                   <div>
                     <button className={styles.basket__products_minus} onClick={()=>minusOne(item.id)}>-</button>
                     <p className={styles.basket__products_quanity}>{item.quantity}</p>
@@ -72,13 +70,13 @@ function Basket() {
 
               </div>
             ))}
-            <p className={styles.basket__products_limit}>Минимальная сумма заказа 400 грн</p>
+            <p className={styles.basket__products_limit}>Минимальная сумма заказа 50 $</p>
           </div>
 
             <div className={basket.length == 0 ? classNames(styles.basket__bottom,styles.active) : styles.basket__bottom}>
                   <div>
                       <p className={styles.basket__bottom_total}>Итого:</p>
-                      <p className={styles.basket__bottom_price}>{totalPrice}<span>грн</span></p>
+                      <p className={styles.basket__bottom_price}>{totalPrice}<span> $</span></p>
                   </div>
                   
                   <button className={styles.basket__bottom_btn}>Оформить заказ</button>

@@ -1,0 +1,79 @@
+.detail{
+    z-index: 999;
+    &__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__info{
+        display: flex;
+        gap: 124px;
+        align-items: center;
+        &_images{
+            width: 645px;
+
+        }
+    }
+    &__images{
+            display: flex;
+            gap: 8px;
+            padding-bottom: 12px;
+        &_hit,&_new{
+            height: 32px;
+            border-radius: 8px;
+            background:  #FBDCD5;
+            color:  #000;
+            font-family: 'Inter';
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+             &.active{
+                padding: 6px 10px;
+             }
+        }
+        &_new{
+        background: #CCF5D5;
+        color: #000;
+        }
+    }
+    &__title{
+        color:  #1D1D1F;
+        font-family:'Montserrat';
+        font-size: 54px;
+        font-weight: 700;
+        line-height: normal;
+        padding-bottom: 16px;
+    }
+    &__weight{
+        color:  #000;
+        font-family: 'Montserrat';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 30px; 
+    }
+    &__price{
+        color:  #1D1D1F;
+        font-family: 'Montserrat';
+        font-size: 48px;
+        font-weight: 700;
+        line-height: normal;
+        & span{
+            color:  #686870;
+            font-family: 'Montserrat';
+            font-size: 32px;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+    &__ingridient{
+        padding-top: 16px;
+        color:  #1D1D1F;
+        font-family:'Montserrat';
+        font-size: 18px;
+        font-weight: 700;
+        line-height: normal;
+        padding-bottom: 16px;
+    }
+}

@@ -36,7 +36,7 @@
     }
     &__title{
         color:  #1D1D1F;
-        font-family: 'Inter';
+        font-family: 'Montserrat';
         font-size: 28px;
         font-style: normal;
         font-weight: 700;
@@ -67,7 +67,7 @@
             padding-top: 16px;
             color: #1D1D1F;
             text-align: center;
-            font-family: 'Inter';
+            font-family: 'Montserrat';
             font-size: 20px;
             font-style: normal;
             font-weight: 500;
@@ -84,9 +84,9 @@
             margin-top: 12px;
             width: 280px;
             padding: 16px 0;
-            color:  #00CC2D;
+            color:  #000;
             text-align: center;
-            font-family: Inter;
+            font-family: 'Montserrat';
             font-size: 16px;
             font-style: normal;
             font-weight: 500;
@@ -97,7 +97,7 @@
             transition: 0.5s;
             cursor: pointer;
             &:hover{
-                background: #00CC2D;
+                background: #000;
                 color: white;
             }
         }
@@ -149,7 +149,7 @@
         &_title{
             display: flex;
             color:  #1D1D1F;
-            font-family:' Inter';
+            font-family:'Montserrat';
             font-size: 16px;
             font-style: normal;
             font-weight: 700;
@@ -159,8 +159,8 @@
             }
         }
         &_weight{
-            color: #F63;
-            font-family: 'Inter';
+            color: #000;
+            font-family: 'Montserrat';
             font-size: 14px;
             font-style: normal;
             font-weight: 500;
@@ -179,7 +179,7 @@
         &_price{
             color: #1D1D1F;
             text-align: right;
-            font-family: Inter;
+            font-family: 'Montserrat';
             font-size: 14px;
             font-style: normal;
             font-weight: 500;
@@ -198,7 +198,7 @@
         }
         &_quanity{
             color:  #1D1D1F;
-            font-family: Inter;
+            font-family: 'Montserrat';
             font-size: 14px;
             font-style: normal;
             font-weight: 500;
@@ -206,8 +206,8 @@
         }
         &_limit{
             padding: 16px 0 12px;
-            color: #F63;
-            font-family:' Inter';
+            color: #000;
+            font-family:'Montserrat';
             font-size: 14px;
             font-style: normal;
             font-weight: 500;
@@ -233,7 +233,7 @@
         }
         &_total{
             color:  #9E9E9E;
-            font-family: 'Inter';
+            font-family: 'Montserrat';
             font-size: 14px;
             font-style: normal;
             font-weight: 400;
@@ -241,14 +241,14 @@
         }
         &_price{
             color:  #1D1D1F;
-            font-family: 'Inter';
+            font-family: 'Montserrat';
             font-size: 32px;
             font-style: normal;
             font-weight: 700;
             line-height: 40px;
             & span{
                 color: #686870;
-                font-family:' Inter';
+                font-family:'Montserrat';
                 font-size: 21px;
                 font-style: normal;
                 font-weight: 700;
@@ -262,7 +262,7 @@
             width: 180px;
             height: 56px;
             border-radius: 12px;
-            background:  #00CC2D;
+            background:  #000;
             border: none;
             color:  #FFF;
             font-family: Inter;

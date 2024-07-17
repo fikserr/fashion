@@ -23,7 +23,6 @@ const saveStateToLocalStorage = (state) => {
 
 const initialState = loadStateFromLocalStorage() || {
   basket: [],
-  activeLike: [],
   totalPrice: 0,
   detailId: [],
 };
@@ -70,19 +69,6 @@ const basketSlice = createSlice({
         return item;
       });
       state.totalPrice = calculateTotalPrice(state.basket);
-      saveStateToLocalStorage(state);
-    },
-    setLike(state, action) {
-
-      const existingItem = state.activeLike.find(item => item.id === action.payload.id);
-      if (!existingItem) {
-        state.activeLike.push({ ...action.payload, like: true});
-      }else if (existingItem) {
-        state.activeLike = state.activeLike.filter(item => item.id !== action.payload.id)
-      }
-      
-
-
       saveStateToLocalStorage(state);
     },
     setDetail(state,action){
