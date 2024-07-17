@@ -35,92 +35,20 @@ const initialState = {
   error: null,
   productsData: null,
   total: 0,
+  itemPerPage: 12,
 };
 
 const dataSlice = createSlice({
   name: "data",
   initialState: initialState,
   reducers: {
-    // filterMen(state, action) {
-    //   const ingredient = action.payload.toLowerCase();
+    filterWomen(state, action) {
+      const ingredient = action.payload.toLowerCase();
+      state.products = state.productsData.filter(item =>
+        item?.category?.toLowerCase()?.split('-')[0] === ingredient
+      );
 
-    //   if (state.products == null) {
-    //     state.products = state.products.filter((product) =>
-    //         product?.slug?.some((ing) =>
-    //           ing.toLowerCase().includes('men')
-    //         )
-    //       );
-    //   } else {
-    //     state.products = null;
-    //     state.products = state.products.filter(
-    //       (item) => item.category.toLowerCase() === "sushi"
-    //     );
-    //     state.products = state.products.filter((product) =>
-    //       product?.incredients?.some((ing) =>
-    //         ing.toLowerCase().includes(ingredient)
-    //       )
-    //     );
-    //   }
-    // },
-    // filterCatalog(state, action) {
-    //   const ctgry = action.payload.toLowerCase();
-
-    //   if (state.sushi == null) {
-    //     state.sushi = state.sushi.filter((product) =>
-    //       product?.catalog?.some((ing) => ing.toLowerCase().includes(ctgry))
-    //     );
-    //   } else {
-    //     state.sushi = null;
-    //     state.sushi = state.products.filter(
-    //       (item) => item.category.toLowerCase() === "sushi"
-    //     );
-    //     state.sushi = state.sushi.filter((product) =>
-    //       product?.catalog?.some((ing) => ing.toLowerCase().includes(ctgry))
-    //     );
-    //   }
-
-    //   if (state.roll == null) {
-    //     state.roll = state.roll.filter((product) =>
-    //       product?.catalog?.some((ing) => ing.toLowerCase().includes(ctgry))
-    //     );
-    //   } else {
-    //     state.roll = null;
-    //     state.roll = state.products.filter(
-    //       (item) => item.category.toLowerCase() === "roll"
-    //     );
-    //     state.roll = state.roll.filter((product) =>
-    //       product?.catalog?.some((ing) => ing.toLowerCase().includes(ctgry))
-    //     );
-    //   }
-
-    //   if (state.set == null) {
-    //     state.set = state.set.filter((product) =>
-    //       product?.catalog?.some((ing) => ing.toLowerCase().includes(ctgry))
-    //     );
-    //   } else {
-    //     state.set = null;
-    //     state.set = state.products.filter(
-    //       (item) => item.category.toLowerCase() === "set"
-    //     );
-    //     state.set = state.set.filter((product) =>
-    //       product?.catalog?.some((ing) => ing.toLowerCase().includes(ctgry))
-    //     );
-    //   }
-
-    //   if (state.sneaks == null) {
-    //     state.sneaks = state.sneaks.filter((product) =>
-    //       product?.catalog?.some((ing) => ing.toLowerCase().includes(ctgry))
-    //     );
-    //   } else {
-    //     state.sneaks = null;
-    //     state.sneaks = state.products.filter(
-    //       (item) => item.category.toLowerCase() === "sneaks"
-    //     );
-    //     state.sneaks = state.sneaks.filter((product) =>
-    //       product?.catalog?.some((ing) => ing.toLowerCase().includes(ctgry))
-    //     );
-    //   }
-    // },
+    },
 
     resetFilter(state, action) {
       state.products = action.payload;
@@ -130,14 +58,11 @@ const dataSlice = createSlice({
     builder
       .addCase(getData.fulfilled, (state, action) => {
         const path = action.meta.arg
-        if (path.includes('?limit=12')) {
-            state.products = action.payload.products;
-            state.productsData = action.payload.products;
-        }else if (path.includes('?sortBy=title=men&order=asc')) {
-            state.products = action.payload.products;
-        }
-    
-        
+          state.products = action.payload.products;
+          state.productsData = action.payload.products;
+   
+
+
         state.total = action.payload.total;
       })
       .addCase(getData.rejected, (state, action) => {
@@ -146,6 +71,6 @@ const dataSlice = createSlice({
   },
 });
 
-export const { filterMen, resetFilter, filterCatalog } = dataSlice.actions;
+export const { filterWomen, resetFilter, filterCatalog } = dataSlice.actions;
 
 export default dataSlice.reducer;

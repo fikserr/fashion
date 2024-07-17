@@ -1,31 +1,33 @@
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './products.module.scss'
+import styles from './products.module.scss';
 import { useEffect, useState } from 'react';
 import { getData } from '../../store/dataSlice';
 import Container from '../../layout/container';
-import ReactPaginate from 'react-paginate'
+import ReactPaginate from 'react-paginate';
 import Card from '../card';
 import Search from '../search';
 import Filter from '../filter';
 
 function Products() {
   const dispatch = useDispatch();
-  const [pageNum, setPageNum] = useState(1)
-  const {products,error,total} = useSelector(state => state.data);  
-  console.log(products);
+  const [pageNum, setPageNum] = useState(0); // Initial page number is 0
+  const { products, error, total, itemPerPage } = useSelector(state => state.data);  
+  const pages = Math.ceil(total / itemPerPage);
+
   useEffect(() => {
-    dispatch(getData('/?limit=12'));
-  }, [error]);
+    dispatch(getData(`/?limit=${itemPerPage}&skip=${pageNum * itemPerPage}`));
+  }, [dispatch, itemPerPage, pageNum]);
 
   function handlePageClick(e) {
-    setPageNum(e.selected + 1);
-    dispatch(getData(`/?limit=12&skip=${pageNum}`))
+    setPageNum(e.selected); 
+    console.log(products);
   }
+
   return (
     <div className={styles.products}>
       <Container className={styles.products__container}>
-            <Search/>
-            <Filter/>
+        <Search/>
+        <Filter/>
         <div className={styles.products__cards}>
           {
             products?.map((item) => (
@@ -39,7 +41,7 @@ function Products() {
           nextLabel=">"
           onPageChange={handlePageClick}
           pageRangeDisplayed={2}
-          pageCount={total}
+          pageCount={pages}
           previousLabel="<"
           renderOnZeroPageCount={null}
           className={styles.products__paginate}
@@ -49,4 +51,4 @@ function Products() {
   )
 }
 
-export default Products
+export default Products;

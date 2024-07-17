@@ -8,9 +8,8 @@ function Search() {
     const [search,setValue] = useState('')
     const dispatch = useDispatch()
     const {error} = useSelector(state => state.data);  
-    console.log(search);
     useEffect(() => {
-        dispatch(getData(`search?q=${search}`));
+        dispatch(getData(`/search?q=${search}`));
       }, [dispatch,error,search]);
     return (
         <div className={styles.search}>

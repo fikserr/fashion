@@ -3,21 +3,22 @@ import Container from "../../layout/container";
 import styles from "./filter.module.scss";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-import { getData } from "../../store/dataSlice";
+import {filterWomen, getData } from "../../store/dataSlice";
 
 function Filter() {
   const [active,setActive] = useState('Все')
   const dispatch = useDispatch()
-  const {products} = useSelector(state => state.data)
-  
+  const {products,total, itemPerPage} = useSelector(state => state.data)
+  console.log(products)
   function Mens(menText) {
-    dispatch(getData('?sortBy=title=title&order=desc'))
+    dispatch(getData(`/?limit=${itemPerPage * total}`))
+    dispatch(filterWomen('womens'))
     setActive(menText)
-    console.log(products);
   }
   function All(allText) {
-    dispatch(getData('/?limit=12'))
+    dispatch(getData(`/?limit=${itemPerPage}`))
     setActive(allText)
+    console.log(total);
   }
   return (
     <div className={styles.filter}>
