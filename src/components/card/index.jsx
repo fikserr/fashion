@@ -18,8 +18,12 @@ function Card({ data }) {
         onClick={()=>navigate(`detail/${data.id}`)}
       />
       <p className={styles.card__title}>{data.title}</p>
+      <p className={styles.card__text}>{data.description}</p>
       <div className={styles.card__bottom}>
+        <div>
         <p className={styles.card__price}>{data.price} $</p>
+        <p className={styles.card__price_discount}>-{data.discountPercentage}% <span>{Math.round(data.price - (data.price * (data.discountPercentage / 100)))} $</span></p>
+        </div>
         <button
           className={styles.card__button}
           onClick={() => sendProduct(data)}

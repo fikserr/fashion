@@ -18,11 +18,27 @@
         font-weight: 400;
         line-height: normal;
     }
+    &__text{
+        height: 84px;
+        padding-top: 12px;
+        color:  #062F42;
+        font-family: 'Montserrat';
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      
+    }
     &__bottom{
         padding-top: 17px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    & div{
+        display: flex;
+        gap: 8px;
+        align-items: end;
     }
     &__price{
         color: #062F42;
@@ -31,6 +47,15 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        &_discount{
+            color: red;
+            font-family: 'Montserrat';
+            font-size: 14px;
+            & span{
+                font-size: 18px;
+
+            }
+        }
     }
     &__button{
         background: none;

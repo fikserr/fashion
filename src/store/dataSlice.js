@@ -31,9 +31,9 @@ export const getData = createAsyncThunk(
 );
 
 const initialState = {
-  products: null,
+  products: [],
   error: null,
-  productsData: null,
+  productsData: [],
   total: 0,
   itemPerPage: 12,
 };
@@ -45,25 +45,40 @@ const dataSlice = createSlice({
     filterWomen(state, action) {
       const ingredient = action.payload.toLowerCase();
       state.products = state.productsData.filter(item =>
-        item?.category?.toLowerCase()?.split('-')[0] === ingredient
+        item?.category?.toLowerCase().split("-")[0] === ingredient
       );
-
     },
-
-    resetFilter(state, action) {
-      state.products = action.payload;
+    filterNew(state) {
+      const daysAgo30 = new Date();
+      daysAgo30.setDate(daysAgo30.getDate() - 30);
+      console.log(daysAgo30);
+      state.products = state.productsData.filter(product => 
+        new Date(product.meta.createdAt) >= daysAgo30
+      );
+    },
+    filterByPrice(state, action) {
+      const { minPrice, maxPrice } = action.payload;
+      state.products = state.productsData.filter(
+        (product) => product.price >= minPrice && product.price <= maxPrice
+      );
+    },
+    resetFilter(state) {
+      state.products = state.productsData;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getData.fulfilled, (state, action) => {
-        const path = action.meta.arg
-          state.products = action.payload.products;
-          state.productsData = action.payload.products;
-   
-
-
+        state.productsData = action.payload.products;
         state.total = action.payload.total;
+        
+
+        const path = action.meta.arg;
+        if (/\?limit=\d+&skip=\d+/.test(path) ||
+            /\?q=/.test(path) ||
+            /\?limit=\d+/.test(path)) {
+          state.products = action.payload.products;
+        }
       })
       .addCase(getData.rejected, (state, action) => {
         state.error = action.error.message;
@@ -71,6 +86,6 @@ const dataSlice = createSlice({
   },
 });
 
-export const { filterWomen, resetFilter, filterCatalog } = dataSlice.actions;
+export const { filterWomen, resetFilter,filterNew,filterByPrice } = dataSlice.actions;
 
 export default dataSlice.reducer;

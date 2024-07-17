@@ -1,10 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux'
-import styles from './detail.module.scss'
 import Container from '../../layout/container'
 import { useParams } from 'react-router'
 import { useEffect } from 'react'
 import { setDetail } from '../../store/basket'
+import React, { useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import classNames from 'classnames'
+// import 'swiper/css';
+import 'swiper/css/navigation';
+import styles from './detail.module.scss'
 
 
 function Detail() {
@@ -12,6 +17,7 @@ function Detail() {
   const {products} = useSelector(state => state.data)
   const dispatch = useDispatch()
   const {id} = useParams()
+  console.log(detailId);
   useEffect(()=>{
     dispatch(setDetail(products?.filter(item => item.id == id)))
   },[id])
@@ -19,12 +25,17 @@ function Detail() {
     <div className={styles.detail}>
       <Container className={styles.detail__container}>
 
+    
 
           {
             detailId?.map((item)=>(
               <div className={styles.detail__info} key={item.id}>
-                    <img src={item.images} alt="images" className={styles.detail__info_images}/>
-
+                    
+                    <Swiper navigation={true} modules={[Navigation]} className={styles.detail__mySwiper}>
+                      <SwiperSlide><img src={item.images?.slice(0)} alt="images" className={styles.detail__info_images}/></SwiperSlide>
+                      <SwiperSlide><img src={item.images?.slice(1)} alt="images" className={styles.detail__info_images}/></SwiperSlide>
+                      <SwiperSlide><img src={item.images?.slice(2)} alt="images" className={styles.detail__info_images}/></SwiperSlide>
+                    </Swiper>
                     <div className={styles.detail__right}>
                       <div className={styles.detail__images}>
                         <p className={classNames(styles.detail__images_hit, item.status && item.status[0] === "hit" ? styles.active : "")}>{item.status ? item.status[0] : ""}</p>
