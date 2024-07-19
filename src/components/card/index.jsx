@@ -12,7 +12,7 @@ function Card({ data }) {
   return (
     <div className={styles.card}>
       <img
-        src={data.images ? data.images : noImage}
+        src={data.images ? data.thumbnail : noImage}
         alt={data.title}
         className={styles.card__images}
         onClick={()=>navigate(`detail/${data.id}`)}
@@ -31,8 +31,6 @@ function Card({ data }) {
           {basket.some((item) => item.id === data.id) ? (
             <svg
               fill="#000000"
-              width="24px"
-              height="24px"
               viewBox="-5 -7 24 24"
               xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="xMinYMin"
@@ -43,8 +41,6 @@ function Card({ data }) {
           ) : (
             <svg
               fill="#000000"
-              width="24px"
-              height="24px"
               viewBox="0 0 1024 1024"
               xmlns="http://www.w3.org/2000/svg"
             >

@@ -1,11 +1,10 @@
 .search{
     padding-top: 40 px;
-    &__container{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
     &__title{
         color: #000;
         font-family: 'Montserrat';
@@ -27,4 +26,58 @@
 
     }
 
+}
+@media screen and (max-width: 992px) {
+    .search{
+        &__container{
+            width: 100%;
+        }
+        &__title{
+            font-size: 32px;
+
+        }
+        &__searchInp{
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 5px;
+    
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .search{
+        &__container{
+            width: 100%;
+        }
+        &__title{
+            font-size: 28px;
+
+        }
+        &__searchInp{
+            font-size: 12px;
+            padding: 5px;
+            border-radius: 5px;
+    
+        }
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    .search{
+        &__container{
+            width: 100%;
+        }
+        &__title{
+            font-size: 24px;
+
+        }
+        &__searchInp{
+            font-size: 12px;
+            padding: 5px;
+            border-radius: 5px;
+    
+        }
+    }
 }

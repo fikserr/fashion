@@ -3,13 +3,14 @@ import Container from '../../layout/container'
 import { useParams } from 'react-router'
 import { useEffect } from 'react'
 import { setDetail } from '../../store/basket'
-import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import classNames from 'classnames'
-// import 'swiper/css';
+import noImage from "../../images/noimage.jpg";
+import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from './detail.module.scss'
+import { NavLink } from 'react-router-dom'
 
 
 function Detail() {
@@ -17,14 +18,13 @@ function Detail() {
   const {products} = useSelector(state => state.data)
   const dispatch = useDispatch()
   const {id} = useParams()
-  console.log(detailId);
   useEffect(()=>{
     dispatch(setDetail(products?.filter(item => item.id == id)))
   },[id])
   return (
     <div className={styles.detail}>
       <Container className={styles.detail__container}>
-
+        <NavLink to='/' className={styles.detail__back}>Back</NavLink>
     
 
           {
@@ -32,9 +32,9 @@ function Detail() {
               <div className={styles.detail__info} key={item.id}>
                     
                     <Swiper navigation={true} modules={[Navigation]} className={styles.detail__mySwiper}>
-                      <SwiperSlide><img src={item.images?.slice(0)} alt="images" className={styles.detail__info_images}/></SwiperSlide>
-                      <SwiperSlide><img src={item.images?.slice(1)} alt="images" className={styles.detail__info_images}/></SwiperSlide>
-                      <SwiperSlide><img src={item.images?.slice(2)} alt="images" className={styles.detail__info_images}/></SwiperSlide>
+                      <SwiperSlide><img src={!item.images?.slice(0) ? noImage : item.images?.slice(0)} alt="images" className={styles.detail__info_images}/></SwiperSlide>
+                      <SwiperSlide><img src={!item.images?.slice(1) ? noImage : item.images?.slice(1)} alt="images" className={styles.detail__info_images}/></SwiperSlide>
+                      <SwiperSlide><img src={!item.images?.slice(2) ? noImage : item.images?.slice(2)} alt="images" className={styles.detail__info_images}/></SwiperSlide>
                     </Swiper>
                     <div className={styles.detail__right}>
                       <div className={styles.detail__images}>

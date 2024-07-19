@@ -1,0 +1,40 @@
+.error{
+    padding-top: 200px;
+    &__container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &__image{
+        width: 800px;
+        object-position: center;
+        object-fit: cover;
+        mix-blend-mode: multiply;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .error{
+        padding-top: 200px;
+        &__image{
+            width:550px;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .error{
+        padding-top: 150px;
+        &__image{
+            width:350px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .error{
+        padding-top: 100px;
+        &__image{
+            width: 250px;
+        }
+    }
+}

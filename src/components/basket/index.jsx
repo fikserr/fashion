@@ -55,8 +55,7 @@ function Basket() {
                 <div className={styles.basket__products_left}>
                       <img src={item.images} alt={item.name} className={styles.basket__products_image} />
                       <div>
-                        <h3 className={styles.basket__products_title}>{item.name}</h3>
-                        <p className={styles.basket__products_weight}><span>Вес:</span>{item.weight}</p>
+                        <h3 className={styles.basket__products_title}>{item.title}</h3>
                       </div>
                 </div>
                 <div className={styles.basket__products_right}>
@@ -76,7 +75,7 @@ function Basket() {
             <div className={basket.length == 0 ? classNames(styles.basket__bottom,styles.active) : styles.basket__bottom}>
                   <div>
                       <p className={styles.basket__bottom_total}>Итого:</p>
-                      <p className={styles.basket__bottom_price}>{totalPrice}<span> $</span></p>
+                      <p className={styles.basket__bottom_price}>{Math.round(totalPrice)}<span> $</span></p>
                   </div>
                   
                   <button className={styles.basket__bottom_btn}>Оформить заказ</button>

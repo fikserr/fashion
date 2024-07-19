@@ -29,3 +29,49 @@
         }
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .products{
+        &__cards{
+            grid-gap: 24px;
+            row-gap: 56px;
+            grid-template-columns:  repeat(3,1fr);
+            grid-gap: 10px;
+        }
+    }
+
+}
+@media screen and (max-width: 992px) {
+    .products{
+        &__cards{
+            grid-gap: 24px;
+            row-gap: 56px;
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 10px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .products{
+        &__cards{
+            grid-gap: 24px;
+            row-gap: 56px;
+            grid-template-columns:  repeat(2,1fr);
+            grid-gap: 10px;
+        }
+    }
+}
+
+@media screen and (max-width:576px) {
+    .products{
+        &__cards{
+            grid-gap: 24px;
+            row-gap: 56px;
+            grid-template-columns:  repeat(2,1fr);
+            grid-gap: 10px;
+        }
+    }
+}
+

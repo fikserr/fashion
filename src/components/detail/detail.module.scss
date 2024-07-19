@@ -1,65 +1,82 @@
-.detail{
-    z-index: 999;
-    &__container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+.detail {
+  z-index: 999;
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+  }
+  &__back{
+    padding: 12px 25px;
+    background: none;
+    border: 1px solid #000;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #1d1d1f;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+    &:hover{
+      background: #000;
+      color: white;
     }
-    &__info{
-        display: flex;
-        gap: 124px;
-        align-items: center;
-        &_images{
-            width: 645px;
-
-        }
+  }
+  &__info {
+    display: flex;
+    gap: 124px;
+    align-items: center;
+    height: 80vh;
+  }
+  &__mySwiper {
+    width: 600px;
+    
+    & img {
+      width: 450px;
     }
-    &__mySwiper{
-        display: flex;
-        width: 40%;
+  }
+  &__images {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 12px;
+  }
+  &__title {
+    color: #1d1d1f;
+    font-family: "Montserrat";
+    font-size: 54px;
+    font-weight: 700;
+    line-height: normal;
+    padding-bottom: 16px;
+  }
+  &__weight {
+    color: #000;
+    font-family: "Montserrat";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+  }
+  &__price {
+    color: #1d1d1f;
+    font-family: "Montserrat";
+    font-size: 48px;
+    font-weight: 700;
+    line-height: normal;
+    & span {
+      color: #686870;
+      font-family: "Montserrat";
+      font-size: 32px;
+      font-weight: 700;
+      line-height: normal;
     }
-    &__images{
-            display: flex;
-            gap: 8px;
-            padding-bottom: 12px;
-    }
-    &__title{
-        color:  #1D1D1F;
-        font-family:'Montserrat';
-        font-size: 54px;
-        font-weight: 700;
-        line-height: normal;
-        padding-bottom: 16px;
-    }
-    &__weight{
-        color:  #000;
-        font-family: 'Montserrat';
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 30px; 
-    }
-    &__price{
-        color:  #1D1D1F;
-        font-family: 'Montserrat';
-        font-size: 48px;
-        font-weight: 700;
-        line-height: normal;
-        & span{
-            color:  #686870;
-            font-family: 'Montserrat';
-            font-size: 32px;
-            font-weight: 700;
-            line-height: normal;
-        }
-    }
-    &__ingridient{
-        padding-top: 16px;
-        color:  #1D1D1F;
-        font-family:'Montserrat';
-        font-size: 18px;
-        font-weight: 700;
-        line-height: normal;
-        padding-bottom: 16px;
-    }
+  }
+  &__ingridient {
+    padding-top: 16px;
+    color: #1d1d1f;
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    padding-bottom: 16px;
+  }
 }

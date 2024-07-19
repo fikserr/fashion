@@ -8,8 +8,8 @@ import { filterByPrice, filterNew, filterWomen, getData } from "../../store/data
 function Filter() {
   const [active, setActive] = useState("Все");
   const dispatch = useDispatch();
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(0);
+  const [minPrice, setMinPrice] = useState();
+  const [maxPrice, setMaxPrice] = useState();
   const { total, itemPerPage } = useSelector((state) => state.data);
 
   useEffect(() => {
@@ -44,10 +44,9 @@ function Filter() {
     dispatch(getData(`/?limit=${itemPerPage}`));
     setActive(allText);
   }
-
   return (
     <div className={styles.filter}>
-      <Container className={styles.filter__container}>
+
         <div className={styles.filter__buttons}>
           <button
             className={
@@ -58,16 +57,6 @@ function Filter() {
             onClick={(e) => All(e.target.textContent)}
           >
             Все
-          </button>
-          <button
-            className={
-              active === "По цене"
-                ? classNames(styles.filter__btn, styles.active)
-                : styles.filter__btn
-            }
-            onClick={(e) => handleFilterByPrice(e.target.textContent)}
-          >
-            По цене
           </button>
           <button
             className={
@@ -89,25 +78,34 @@ function Filter() {
           >
             Женские
           </button>
+          <button
+            className={
+              active === "По цене"
+                ? classNames(styles.filter__btn, styles.active)
+                : styles.filter__btn
+            }
+            onClick={(e) => handleFilterByPrice(e.target.textContent)}
+          >
+            По цене
+          </button>
           <input
-            type="text"
+            type="number"
             value={minPrice}
             onChange={(e) => setMinPrice(Number(e.target.value))}
             placeholder="Minimal price"
             className={styles.filter__btn}
           />
           <input
-            type="text"
+            type="number"
             value={maxPrice}
             onChange={(e) => setMaxPrice(Number(e.target.value))}
             placeholder="Maximal price"
             className={styles.filter__btn}
           />
         </div>
-        <button className={styles.filter__btn}>
+        <button className={classNames(styles.filter__btn,styles.filter__quantity)}>
           Общее кол-во товаров-{total}
         </button>
-      </Container>
     </div>
   );
 }

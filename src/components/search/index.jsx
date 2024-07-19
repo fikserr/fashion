@@ -13,7 +13,7 @@ function Search() {
       }, [dispatch,error,search]);
     return (
         <div className={styles.search}>
-            <Container className={styles.search__container}>
+
                 <h1 className={styles.search__title}>Products</h1>
                 <input type="text" 
                 className={styles.search__searchInp} 
@@ -21,7 +21,6 @@ function Search() {
                 value={search}
                 onChange={(e)=>setValue(e.target.value)}
                  />
-            </Container>
         </div>
     )
 }

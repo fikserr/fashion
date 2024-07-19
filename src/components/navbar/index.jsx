@@ -11,12 +11,23 @@ function Navbar() {
           <img src={logo} alt="" />
         </NavLink>
         <div className={styles.navbar__pages}>
-          <NavLink to='/' className={styles.navbar__pages_link}>Новинки</NavLink>
-          <NavLink to='/' className={styles.navbar__pages_link}>Категории</NavLink>
-          <NavLink to='/' className={styles.navbar__pages_link}>Скидки</NavLink>
-          <NavLink to='/' className={styles.navbar__pages_link}>Контакты </NavLink>
-          <NavLink to='/' className={styles.navbar__pages_link}>О нас</NavLink>
+          <NavLink to="/" className={styles.navbar__pages_link}>
+            Новинки
+          </NavLink>
+          <NavLink to="/" className={styles.navbar__pages_link}>
+            Категории
+          </NavLink>
+          <NavLink to="/" className={styles.navbar__pages_link}>
+            Скидки
+          </NavLink>
+          <NavLink to="/" className={styles.navbar__pages_link}>
+            Контакты{" "}
+          </NavLink>
+          <NavLink to="/" className={styles.navbar__pages_link}>
+            О нас
+          </NavLink>
         </div>
+        <div className={styles.navbar__basket}>
         <NavLink className={styles.navbar__logo} to="basket">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,6 +58,24 @@ function Navbar() {
             />
           </svg>
         </NavLink>
+        <NavLink className={styles.navbar__menu} to="menu">
+          <svg
+            width="44px"
+            height="44px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 8H19M8 12H19M8 16H19M5 8V8.00999M5 12V12.01M5 16V16.01"
+              stroke="#000000"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </NavLink>
+        </div>
       </Container>
     </div>
   );
